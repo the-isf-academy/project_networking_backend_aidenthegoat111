@@ -2,12 +2,15 @@
 
 from banjo.urls import route_get, route_post
 from settings import BASE_URL
+from .models import Prompt
 
-@route_post(BASE_URL + 'new', args={'statement':str})
-def new_statement(args):
-    new_fortune = Fortune(
-        statement = args['statement'],
-        likes = 0,
+@route_post(BASE_URL + 'new', args={'prompt':str, 'categories': str, 'answer': str})
+def new_prompt(args):
+    new_prompt = Prompt(
+        categories = args['categories'],
+        prompt = args['prompt'],
+        answer = args['answer'],
+        correct = 0
     )
 
     new_statement.save()
@@ -16,14 +19,14 @@ def new_statement(args):
 
 @route_get(BASE_URL + 'all')
 def all_categories(args):
-    categories_list = []
+    categories_list = ['animals']
 
-    for categories in Categories.objects.all():
+    for categories in Prompt.objects.all():
         categories_list.append(categories.json_response())
 
     return {'category':categories_list}
 
-    @route_get(BASE_URL + 'all')
+@route_get(BASE_URL + 'all')
 def all_prompts(args):
     prompts_list = []
 
