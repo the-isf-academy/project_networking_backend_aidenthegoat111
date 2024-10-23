@@ -18,8 +18,7 @@ class Prompt(Model):
             'correct': self.correct,
             'categories': self.categories,
             'prompt': self.prompt,
-            'correct': self.correct,
-            'answer': self.answer
+            'correct': self.correct 
         }
 
     def increase_likes(self):
@@ -36,7 +35,7 @@ class Prompt(Model):
     def json_response_incorrect_guess(self):
         return(
             {'id': self.id,
-            'question': self.question,
+            'prompt': self.prompt,
             'guesses': self.guesses,
             'incorrect': False}
         )
@@ -44,7 +43,7 @@ class Prompt(Model):
     def json_response_correct_guess(self):
         return(
             {'id': self.id,
-            'question': self.question,
+            'prompt': self.prompt,
             'guesses': self.guesses,
             'correct': True}
         )

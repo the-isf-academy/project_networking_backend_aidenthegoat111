@@ -34,7 +34,9 @@ $ http GET 127.0.0.1:5000/thebestpictionary/all_categories
 
 ### Get category from id
 
-$ http GET 127.0.0.1:5000/thebestpictionary/one_category id=1
+$ http GET 127.0.0.1:5000/thebestpictionary/one_category 
+
+"category_id=1"
 
 {
     "category_id": 1,
@@ -43,32 +45,37 @@ $ http GET 127.0.0.1:5000/thebestpictionary/one_category id=1
 
 ### all_prompt
 
-$ http GET 127.0.0.1:5000/thebestpictionary/all_prompt category=movies
+$ http GET 127.0.0.1:5000/thebestpictionary/all_prompt 
+
+"category=movies"
 
 {
     "correct": 0,
     "guesses": 0,
-    "id": 1,
-    "category": "movies"
+    "category_id": 1,
+    "category": "movies",
+    "prompt_id": 1,
     "prompt": "Twisters"
 
     "correct": 0,
     "guesses": 0,
-    "id": 1,
-    "category": "movies"
+    "category_id": 1,
+    "category": "movies",
+    "prompt_id": 2,
     "prompt": "Joker"
 
     "correct": 0,
     "guesses": 0,
-    "id": 1,
+    "category_id": 1,
     "category": "movies"
+    "prompt_id": "3"
     "prompt": "Transformers"
 }
 
 ### Add a category
 
 ```
-$ http POST 127.0.0.1:5000/thebestpictionary/new_category "new_category": "Sports"
+$ http POST 127.0.0.1:5000/thebestpictionary/new_category 
 
 {
     "category_id": 3,
@@ -77,7 +84,17 @@ $ http POST 127.0.0.1:5000/thebestpictionary/new_category "new_category": "Sport
 
 ### Add_prompt
 
+$ http POST 127.0.0.1:5000/thebestpictionary/new_category "category": "Sports"
+"new_prompt": "Football"
 
+{
+    "Correct": 0,
+    "Guesses": 0
+    "category_id": 3,
+    "category": "Sports"
+    "prompt_id": 4,
+    "prompt": "Football"
+}
 
 ### Guess the answer to a riddle
 
