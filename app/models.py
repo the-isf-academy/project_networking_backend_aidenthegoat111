@@ -8,13 +8,13 @@ class Prompt(Model):
     correct = BooleanField()
     likes = IntegerField()
     prompt = StringField()
+    categories = StringField()
+    keyword = StringField()
 
     def json_response(self):
         
         return {
             'id': self.id,
-            'statement': self.statement,
-            'likes': self.likes,
             'correct': self.correct,
             'categories': self.categories,
             'prompt': self.prompt,

@@ -15,6 +15,15 @@ My API is made for pictionary games for friends. Users will choose categories fr
 
 *Replace this with a guide to your endpoints and model. You can write a Markdown chart [here](https://www.tablesgenerator.com/markdown_tables)*
 
+| # Route name    | # Description                                                 | # HTTP Method | # Payload                   | # Example                                                                                                                                                                                      |
+|-----------------|---------------------------------------------------------------|---------------|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+| add_prompt      | Adds new word and/or add a new category                          | post          | category_id new_prompt      | category_id = 1 category = sports prompt_id = 1 prompt = Football                                                                                                                              |
+| all_categories  | View all currently available categories                       | get           | N/A                         | category_id = 1 category = sports  category_id = 2 category = Movies                                                                                                                           |
+| all_prompts     | View all words available in a selected category               | get           | category_id                 | category_id = 1 category = sports prompt_id = 1 prompt = Football  category_id = 1 category = sports prompt_id = 2 prompt = Basketball                                                         |
+| generate_prompt | Generates a random word from a selected category              | get           | category_id                 | category_id = 1 category = sports prompt_id = 1 prompt = Football                                                                                                                              |
+| Guess_answer    | Player guesses the answer                                     | post          | category_id prompt_id guess | Correct guess: category_id = 1 category = sports prompt_id = 1 prompt = Football Correct = True  Incorrect guess: category_id = 1 category = sports prompt_id = 1 prompt = Football Correct = False |
+| search_prompt   | searches for words containing keywords in a selected category | get           | keyword                     | keyword = ball  category_id = 1 category = sports prompt_id = 1 prompt = Football  category_id = 1 category = sports prompt_id = 2 prompt = Basketball                                         |
 
 ### all_categories
 
