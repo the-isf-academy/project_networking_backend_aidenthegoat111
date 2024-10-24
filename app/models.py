@@ -14,11 +14,9 @@ class Prompt(Model):
     def json_response(self):
         
         return {
-            'id': self.id,
-            'correct': self.correct,
             'categories': self.categories,
-            'prompt': self.prompt,
-            'correct': self.correct 
+            'id': self.id,
+            'prompt': self.prompt
         }
 
     def increase_likes(self):
