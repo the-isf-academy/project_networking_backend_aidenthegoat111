@@ -17,42 +17,14 @@ My API is made for pictionary games for friends. Users will choose categories fr
 
 | # Route name    | # Description                                                                                                             | # HTTP Method | # Payload             | # Example                                                                                                                                                                                      |
 |-----------------|---------------------------------------------------------------------------------------------------------------------------|---------------|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| add_prompt      | Adds new word and/or add a new category                                                                                   | post          | category prompt       | category_id = 1 category = sports prompt_id = 1 prompt = Football                                                                                                                              |
-| all_prompts     | View all words available in a selected category                                                                           | get           | category              | category_id = 1 category = sports prompt_id = 1 prompt = Football  category_id = 1 category = sports prompt_id = 2 prompt = Basketball                                                         |
+| add_prompt      | Adds new word and/or add a new category                                                                                   | post          | category prompt       | category_id = 1 category = sports prompt_id = 1 prompt = Football                                                                                                                                                                                |
 | generate_prompt | Generates a random word from a selected category                                                                          | get           | category              | category_id = 1 category = sports prompt_id = 1 prompt = Football                                                                                                                              |
-| Guess_answer    | Player guesses the answer                                                                                                 | post          | category prompt guess | Correct guess: category_id = 1 category = sports prompt_id = 1 prompt = Football Correct = 1  Incorrect guess: category_id = 1 category = sports prompt_id = 1 prompt = Football Incorrect = 1 |
 | search_prompt   | searches for words containing keywords in a selected category  Can also search for specific categories containing keyword | get           | keyword               | keyword = ball  category = sports id = 1 prompt = Football   category = sports id = 2 prompt = Basketball                                                                                      |
 | random_prompt   | generates a random prompt                                                                                                 | get           | N/A                   | category = sports id = 2 prompt = basketball                                                                                                                                                   |
 | all             | View all prompts in any categories                                                                                        | get           | N/A                   | category = sports id = 1 prompt = football  category = sports id = 2 prompt = basketball  category = movies id = 3 prompt = interstellar                                                       |
 
-### all_categories
 
-$ http GET 127.0.0.1:5000/thebestpictionary/all_categories
-
-{
-    "categories": [
-        {
-            "category_id": 1,
-            "category": "movies"
-
-            "category_id": 2,
-            "category": "animals"
-        }
-    ]
-}
-
-### Get category from id
-
-$ http GET 127.0.0.1:5000/thebestpictionary/one_category 
-
-"category_id=1"
-
-{
-    "category_id": 1,
-    "category": "movies"
-}
-
-### all_prompt
+### all
 
 $ http GET 127.0.0.1:5000/thebestpictionary/all_prompt 
 
@@ -81,16 +53,6 @@ $ http GET 127.0.0.1:5000/thebestpictionary/all_prompt
     "prompt": "Transformers"
 }
 
-### Add a category
-
-```
-$ http POST 127.0.0.1:5000/thebestpictionary/new_category 
-
-{
-    "category_id": 3,
-    "category": "Sports"
-}
-
 ### Add_prompt
 
 $ http POST 127.0.0.1:5000/thebestpictionary/new_category "category": "Sports"
@@ -105,21 +67,6 @@ $ http POST 127.0.0.1:5000/thebestpictionary/new_category "category": "Sports"
     "prompt": "Football"
 }
 
-### Guess the answer to a riddle
-
-```
-$ http POST 127.0.0.1:5000/riddles/guess id=1 guess="Carrot"
-
-{
-    "correct": {
-        "answer": "A carrot",
-        "correct": 1,
-        "guesses": 1,
-        "id": 1,
-        "question": "What is orange and sounds like a parrot?"
-    }
-}
-
 ## Setup
 
 Start the banjo server with: `banjo`
@@ -131,6 +78,12 @@ $ banjo
 
 You can now access the riddle server at 127.0.0.1 from your own machine, or from
 your public IP address if you know what it is. 
+
+```
+$ Base URL: http POST 127.0.0.1:5000/bestpictionary
+```
+
+Input base URL into HTTPIE to start the server
 
 
 ### Contents
